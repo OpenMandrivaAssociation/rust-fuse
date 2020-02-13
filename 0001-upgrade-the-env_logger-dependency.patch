@@ -1,0 +1,41 @@
+From e320b6eff05455ef553041e7944d963f94009e44 Mon Sep 17 00:00:00 2001
+From: Jack O'Connor <oconnor663@gmail.com>
+Date: Sun, 25 Feb 2018 13:23:22 -0500
+Subject: [PATCH] upgrade the env_logger dependency
+
+The latest version no longer returns a result from init(), so the
+examples needed to be tweaked.
+---
+ examples/hello.rs | 2 +-
+ examples/null.rs  | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/examples/hello.rs b/examples/hello.rs
+index 75d6dcb..a330f22 100644
+--- a/examples/hello.rs
++++ b/examples/hello.rs
+@@ -91,7 +91,7 @@ impl Filesystem for HelloFS {
+ }
+ 
+ fn main() {
+-    env_logger::init().unwrap();
++    env_logger::init();
+     let mountpoint = env::args_os().nth(1).unwrap();
+     fuse::mount(HelloFS, &mountpoint, &[]).unwrap();
+ }
+diff --git a/examples/null.rs b/examples/null.rs
+index d155cb5..efce27a 100644
+--- a/examples/null.rs
++++ b/examples/null.rs
+@@ -9,7 +9,7 @@ struct NullFS;
+ impl Filesystem for NullFS {}
+ 
+ fn main() {
+-    env_logger::init().unwrap();
++    env_logger::init();
+     let mountpoint = env::args_os().nth(1).unwrap();
+     fuse::mount(NullFS, &mountpoint, &[]).unwrap();
+ }
+-- 
+2.18.0
+

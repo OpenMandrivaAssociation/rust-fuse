@@ -1,0 +1,11 @@
+--- fuse-0.3.1/Cargo.toml	1970-01-01T01:00:00+01:00
++++ fuse-0.3.1/Cargo.toml	2018-07-26T08:56:12.189790+02:00
+@@ -39,7 +39,7 @@
+ [dependencies.libc]
+ version = "0.2"
+ [dev-dependencies.env_logger]
+-version = "0.3"
++version = "0.5"
+ [build-dependencies.pkg-config]
+ version = "0.3"
+ [badges.travis-ci]
